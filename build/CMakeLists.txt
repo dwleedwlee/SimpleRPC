@@ -9,3 +9,4 @@ set(SOURCE_FILES ../src/rpc_main.c ../src/rpc_server.c ../src/rpc_client.c ../sr
 message("set vars: ${SOURCE_FILES}")
 
 add_executable(rpc ${SOURCE_FILES})
+target_link_libraries(rpc PUBLIC pthread)
