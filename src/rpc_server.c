@@ -31,7 +31,7 @@ void rpcRunServerObserver(void) {
 						rpcServerStatWrite(i, RPC_SERVER_ACCEPT);
 						g_rpcServerInfo[i].stat = RPC_SERVER_ACCEPT;
 						g_rpcServerInfo[i].processStat = RPC_PROCESS_PENDING;
-						fp(i, buf);
+						fp(i, buf); /* Blocking Call */
 					} else {
 						rpcServerStatWrite(i, RPC_SERVER_UNDEFINED);
 						g_rpcServerInfo[i].stat = RPC_SERVER_UNDEFINED;

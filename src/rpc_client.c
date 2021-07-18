@@ -34,12 +34,12 @@ void rpcRunClientObserver(void) {
 					case RPC_SERVER_ERROR:
 					case RPC_SERVER_FINISH:
 					{
-						t_fp_cli_callback fp = g_rpcClientInfo[i].fp;
+						t_fp_cli_callback fp = g_rpcClientInfo[i].fp;						
+						if(fp != NULLPTR) {
+							fp(i); /* Blocking Call */
+						}
 						rpcClientStatWrite(i, RPC_CLIENT_READY);
 						g_rpcClientInfo[i].stat = RPC_CLIENT_READY;
-						if(fp != NULLPTR) {
-							fp(i);
-						}
 					}
 						break;
 				}
