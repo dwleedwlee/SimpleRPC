@@ -12,7 +12,7 @@
 void printResponse(t_rpc_item item) {
 	uint8 buf[RPC_DATA_BUF_SIZE];
 	rpcRspDataRead(item, buf);
-	printf("\n[%d]: %s", item, buf);
+	printf("\nClient[%d]: %s", item, buf);
 }
 
 void reversePrintResponse(t_rpc_item item) {
@@ -24,13 +24,14 @@ void reversePrintResponse(t_rpc_item item) {
 		idx++;
 	}
 	
-	printf("\n[%d]: ", item);
+	printf("\nClient[%d]: ", item);
 	for(i = (idx - 1); i >= 0; i--) {
 		printf("%c", buf[i]);
 	}
 }
 
-void writeData(t_rpc_item item) {
+void processRequest(t_rpc_item item, uint8 *req_data) {
+	printf("\nServer[%d]: %s", item, req_data);
 	uint8 buf[] = "RPC IS RUNNING!!!";
 	rpcRspDataWrite(item, buf, sizeof(buf));
 	rpcSetProcessStat(item, RPC_PROCESS_OK);
@@ -49,6 +50,9 @@ void *runObserverThread(void *arg) {
 int main (void) {
 	pthread_t thread_t;
 	int status;
+	uint8 reqData1[] = "RPC REQUEST BROWN";
+	uint8 reqData2[] = "RPC REQUEST GREEN";
+	uint8 reqData3[] = "RPC REQUEST BLUE";
 	
 	rpcInitServerInfo();
 	rpcInitClientInfo();
@@ -58,14 +62,17 @@ int main (void) {
 		exit(0);
 	}
 	
-	rpcRegisterService(RPC_GENERAL_ITEM_3, writeData);
-	rpcRegisterService(RPC_GENERAL_ITEM_5, writeData);
-	rpcRegisterService(RPC_GENERAL_ITEM_7, writeData);
+	rpcRegisterService(RPC_GENERAL_ITEM_3, processRequest);
+	rpcRegisterService(RPC_GENERAL_ITEM_5, processRequest);
+	rpcRegisterService(RPC_GENERAL_ITEM_7, processRequest);
 	
+	rpcReqDataWrite(RPC_GENERAL_ITEM_3, reqData1, sizeof(reqData1));
 	rpcRequestService(RPC_GENERAL_ITEM_3, printResponse);	
-	usleep(10000);	
+	usleep(10000);
+	rpcReqDataWrite(RPC_GENERAL_ITEM_5, reqData2, sizeof(reqData2));
 	rpcRequestService(RPC_GENERAL_ITEM_5, printResponse);	
-	usleep(10000);	
+	usleep(10000);
+	rpcReqDataWrite(RPC_GENERAL_ITEM_7, reqData3, sizeof(reqData3));
 	rpcRequestService(RPC_GENERAL_ITEM_7, reversePrintResponse);	
 	usleep(10000);	
 	rpcRequestService(RPC_GENERAL_ITEM_5, reversePrintResponse);

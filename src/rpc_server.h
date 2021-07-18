@@ -20,15 +20,17 @@ typedef enum {
 	RPC_PROCESS_ERROR	
 }t_rpc_process_stat;
 
+typedef void (*t_fp_srv_callback)(t_rpc_item item, uint8 *buf);
+
 typedef struct {
 	t_rpc_server_stat stat;
 	t_rpc_process_stat processStat;
-	t_fp_callback fp;
+	t_fp_srv_callback fp;
 }t_rpc_server_info;
 
 void rpcInitServerInfo(void);
 void rpcRunServerObserver(void);
-void rpcRegisterService(t_rpc_item item, t_fp_callback fp);
+void rpcRegisterService(t_rpc_item item, t_fp_srv_callback fp);
 void rpcSetProcessStat(t_rpc_item item, t_rpc_process_stat stat);
 
 #endif

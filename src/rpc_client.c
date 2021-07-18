@@ -34,7 +34,7 @@ void rpcRunClientObserver(void) {
 					case RPC_SERVER_ERROR:
 					case RPC_SERVER_FINISH:
 					{
-						t_fp_callback fp = g_rpcClientInfo[i].fp;
+						t_fp_cli_callback fp = g_rpcClientInfo[i].fp;
 						rpcClientStatWrite(i, RPC_CLIENT_READY);
 						g_rpcClientInfo[i].stat = RPC_CLIENT_READY;
 						if(fp != NULLPTR) {
@@ -53,7 +53,7 @@ void rpcRunClientObserver(void) {
 	}
 }
 
-t_rpc_req_ret rpcRequestService(t_rpc_item item, t_fp_callback fp) {
+t_rpc_req_ret rpcRequestService(t_rpc_item item, t_fp_cli_callback fp) {
 	t_rpc_req_ret ret;
 	
 	if(g_rpcClientInfo[item].stat == RPC_CLIENT_READY) {

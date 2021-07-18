@@ -24,12 +24,14 @@ void rpcRunServerObserver(void) {
 			{
 				const t_rpc_client_stat cliStat = rpcClientStatRead(i);
 				if(cliStat == RPC_CLIENT_REQUEST) {
-					t_fp_callback fp = g_rpcServerInfo[i].fp;
+					t_fp_srv_callback fp = g_rpcServerInfo[i].fp;
 					if(fp != NULLPTR) {
+						uint8 buf[RPC_DATA_BUF_SIZE];
+						rpcReqDataRead(i, buf);
 						rpcServerStatWrite(i, RPC_SERVER_ACCEPT);
 						g_rpcServerInfo[i].stat = RPC_SERVER_ACCEPT;
 						g_rpcServerInfo[i].processStat = RPC_PROCESS_PENDING;
-						fp(i);
+						fp(i, buf);
 					} else {
 						rpcServerStatWrite(i, RPC_SERVER_UNDEFINED);
 						g_rpcServerInfo[i].stat = RPC_SERVER_UNDEFINED;
@@ -73,7 +75,7 @@ void rpcRunServerObserver(void) {
 	}
 }
 
-void rpcRegisterService(t_rpc_item item, t_fp_callback fp) {
+void rpcRegisterService(t_rpc_item item, t_fp_srv_callback fp) {
 	g_rpcServerInfo[item].fp = fp;
 }
 

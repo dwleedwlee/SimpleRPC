@@ -15,6 +15,4 @@ typedef enum {
 	RPC_GENERAL_ITEM_MAX
 }t_rpc_item;
 
-typedef void (*t_fp_callback)(t_rpc_item item);
-
 #endif
