@@ -1,3 +1,3 @@
-F:/Programming_RPC/build/CMakeFiles/rpc.dir
-F:/Programming_RPC/build/CMakeFiles/edit_cache.dir
-F:/Programming_RPC/build/CMakeFiles/rebuild_cache.dir
+F:/git/SimpleRPC/build/CMakeFiles/rpc.dir
+F:/git/SimpleRPC/build/CMakeFiles/edit_cache.dir
+F:/git/SimpleRPC/build/CMakeFiles/rebuild_cache.dir

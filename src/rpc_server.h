@@ -3,6 +3,7 @@
 #define __RPC_SERVER_H__
 
 #include "type.h"
+#include "rpc_item.h"
 
 typedef enum {
 	RPC_SERVER_READY = 0,
@@ -26,7 +27,7 @@ typedef struct {
 }t_rpc_server_info;
 
 void rpcRunServerObserver(void);
-void rpcRegisterService(t_fp_callback fp);
-void rpcSetProcessStat(t_rpc_process_stat stat);
+void rpcRegisterService(t_rpc_item item, t_fp_callback fp);
+void rpcSetProcessStat(t_rpc_item item, t_rpc_process_stat stat);
 
 #endif

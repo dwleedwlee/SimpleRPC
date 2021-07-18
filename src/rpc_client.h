@@ -3,6 +3,7 @@
 #define __RPC_CLIENT_H__
 
 #include "type.h"
+#include "rpc_item.h"
 
 typedef enum {
 	RPC_CLIENT_READY = 0,
@@ -20,6 +21,6 @@ typedef enum {
 }t_rpc_req_ret;
 
 void rpcRunClientObserver(void);
-t_rpc_req_ret rpcRequestService(t_fp_callback fp);
+t_rpc_req_ret rpcRequestService(t_rpc_item item, t_fp_callback fp);
 
 #endif

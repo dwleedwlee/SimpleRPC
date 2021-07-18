@@ -5,5 +5,6 @@ CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_client.c.obj: \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\stddef.h \
  c:\mingw\include\sys/types.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\stdarg.h \
- F:\Programming_RPC\src\rpc_server.h F:\Programming_RPC\src\type.h \
- F:\Programming_RPC\src\rpc_client.h F:\Programming_RPC\src\rpc_buffer.h
+ F:\Programming_RPC\src\rpc_client.h F:\Programming_RPC\src\type.h \
+ F:\Programming_RPC\src\rpc_item.h F:\Programming_RPC\src\rpc_buffer.h \
+ F:\Programming_RPC\src\rpc_server.h

@@ -56,10 +56,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = F:\Programming_RPC\build
+CMAKE_SOURCE_DIR = F:\git\SimpleRPC\build
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = F:\Programming_RPC\build
+CMAKE_BINARY_DIR = F:\git\SimpleRPC\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start F:\Programming_RPC\build\CMakeFiles F:\Programming_RPC\build\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\git\SimpleRPC\build\CMakeFiles F:\git\SimpleRPC\build\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start F:\Programming_RPC\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\git\SimpleRPC\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,101 +128,101 @@ rpc/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/build
 .PHONY : rpc/fast
 
-F_/Programming_RPC/src/rpc_buffer.obj: F_/Programming_RPC/src/rpc_buffer.c.obj
-.PHONY : F_/Programming_RPC/src/rpc_buffer.obj
+F_/git/SimpleRPC/src/rpc_buffer.obj: F_/git/SimpleRPC/src/rpc_buffer.c.obj
+.PHONY : F_/git/SimpleRPC/src/rpc_buffer.obj
 
 # target to build an object file
-F_/Programming_RPC/src/rpc_buffer.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_buffer.c.obj
-.PHONY : F_/Programming_RPC/src/rpc_buffer.c.obj
+F_/git/SimpleRPC/src/rpc_buffer.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_buffer.c.obj
+.PHONY : F_/git/SimpleRPC/src/rpc_buffer.c.obj
 
-F_/Programming_RPC/src/rpc_buffer.i: F_/Programming_RPC/src/rpc_buffer.c.i
-.PHONY : F_/Programming_RPC/src/rpc_buffer.i
+F_/git/SimpleRPC/src/rpc_buffer.i: F_/git/SimpleRPC/src/rpc_buffer.c.i
+.PHONY : F_/git/SimpleRPC/src/rpc_buffer.i
 
 # target to preprocess a source file
-F_/Programming_RPC/src/rpc_buffer.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_buffer.c.i
-.PHONY : F_/Programming_RPC/src/rpc_buffer.c.i
+F_/git/SimpleRPC/src/rpc_buffer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_buffer.c.i
+.PHONY : F_/git/SimpleRPC/src/rpc_buffer.c.i
 
-F_/Programming_RPC/src/rpc_buffer.s: F_/Programming_RPC/src/rpc_buffer.c.s
-.PHONY : F_/Programming_RPC/src/rpc_buffer.s
+F_/git/SimpleRPC/src/rpc_buffer.s: F_/git/SimpleRPC/src/rpc_buffer.c.s
+.PHONY : F_/git/SimpleRPC/src/rpc_buffer.s
 
 # target to generate assembly for a file
-F_/Programming_RPC/src/rpc_buffer.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_buffer.c.s
-.PHONY : F_/Programming_RPC/src/rpc_buffer.c.s
+F_/git/SimpleRPC/src/rpc_buffer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_buffer.c.s
+.PHONY : F_/git/SimpleRPC/src/rpc_buffer.c.s
 
-F_/Programming_RPC/src/rpc_client.obj: F_/Programming_RPC/src/rpc_client.c.obj
-.PHONY : F_/Programming_RPC/src/rpc_client.obj
+F_/git/SimpleRPC/src/rpc_client.obj: F_/git/SimpleRPC/src/rpc_client.c.obj
+.PHONY : F_/git/SimpleRPC/src/rpc_client.obj
 
 # target to build an object file
-F_/Programming_RPC/src/rpc_client.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_client.c.obj
-.PHONY : F_/Programming_RPC/src/rpc_client.c.obj
+F_/git/SimpleRPC/src/rpc_client.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_client.c.obj
+.PHONY : F_/git/SimpleRPC/src/rpc_client.c.obj
 
-F_/Programming_RPC/src/rpc_client.i: F_/Programming_RPC/src/rpc_client.c.i
-.PHONY : F_/Programming_RPC/src/rpc_client.i
+F_/git/SimpleRPC/src/rpc_client.i: F_/git/SimpleRPC/src/rpc_client.c.i
+.PHONY : F_/git/SimpleRPC/src/rpc_client.i
 
 # target to preprocess a source file
-F_/Programming_RPC/src/rpc_client.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_client.c.i
-.PHONY : F_/Programming_RPC/src/rpc_client.c.i
+F_/git/SimpleRPC/src/rpc_client.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_client.c.i
+.PHONY : F_/git/SimpleRPC/src/rpc_client.c.i
 
-F_/Programming_RPC/src/rpc_client.s: F_/Programming_RPC/src/rpc_client.c.s
-.PHONY : F_/Programming_RPC/src/rpc_client.s
+F_/git/SimpleRPC/src/rpc_client.s: F_/git/SimpleRPC/src/rpc_client.c.s
+.PHONY : F_/git/SimpleRPC/src/rpc_client.s
 
 # target to generate assembly for a file
-F_/Programming_RPC/src/rpc_client.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_client.c.s
-.PHONY : F_/Programming_RPC/src/rpc_client.c.s
+F_/git/SimpleRPC/src/rpc_client.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_client.c.s
+.PHONY : F_/git/SimpleRPC/src/rpc_client.c.s
 
-F_/Programming_RPC/src/rpc_main.obj: F_/Programming_RPC/src/rpc_main.c.obj
-.PHONY : F_/Programming_RPC/src/rpc_main.obj
+F_/git/SimpleRPC/src/rpc_main.obj: F_/git/SimpleRPC/src/rpc_main.c.obj
+.PHONY : F_/git/SimpleRPC/src/rpc_main.obj
 
 # target to build an object file
-F_/Programming_RPC/src/rpc_main.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_main.c.obj
-.PHONY : F_/Programming_RPC/src/rpc_main.c.obj
+F_/git/SimpleRPC/src/rpc_main.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_main.c.obj
+.PHONY : F_/git/SimpleRPC/src/rpc_main.c.obj
 
-F_/Programming_RPC/src/rpc_main.i: F_/Programming_RPC/src/rpc_main.c.i
-.PHONY : F_/Programming_RPC/src/rpc_main.i
+F_/git/SimpleRPC/src/rpc_main.i: F_/git/SimpleRPC/src/rpc_main.c.i
+.PHONY : F_/git/SimpleRPC/src/rpc_main.i
 
 # target to preprocess a source file
-F_/Programming_RPC/src/rpc_main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_main.c.i
-.PHONY : F_/Programming_RPC/src/rpc_main.c.i
+F_/git/SimpleRPC/src/rpc_main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_main.c.i
+.PHONY : F_/git/SimpleRPC/src/rpc_main.c.i
 
-F_/Programming_RPC/src/rpc_main.s: F_/Programming_RPC/src/rpc_main.c.s
-.PHONY : F_/Programming_RPC/src/rpc_main.s
+F_/git/SimpleRPC/src/rpc_main.s: F_/git/SimpleRPC/src/rpc_main.c.s
+.PHONY : F_/git/SimpleRPC/src/rpc_main.s
 
 # target to generate assembly for a file
-F_/Programming_RPC/src/rpc_main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_main.c.s
-.PHONY : F_/Programming_RPC/src/rpc_main.c.s
+F_/git/SimpleRPC/src/rpc_main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_main.c.s
+.PHONY : F_/git/SimpleRPC/src/rpc_main.c.s
 
-F_/Programming_RPC/src/rpc_server.obj: F_/Programming_RPC/src/rpc_server.c.obj
-.PHONY : F_/Programming_RPC/src/rpc_server.obj
+F_/git/SimpleRPC/src/rpc_server.obj: F_/git/SimpleRPC/src/rpc_server.c.obj
+.PHONY : F_/git/SimpleRPC/src/rpc_server.obj
 
 # target to build an object file
-F_/Programming_RPC/src/rpc_server.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_server.c.obj
-.PHONY : F_/Programming_RPC/src/rpc_server.c.obj
+F_/git/SimpleRPC/src/rpc_server.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_server.c.obj
+.PHONY : F_/git/SimpleRPC/src/rpc_server.c.obj
 
-F_/Programming_RPC/src/rpc_server.i: F_/Programming_RPC/src/rpc_server.c.i
-.PHONY : F_/Programming_RPC/src/rpc_server.i
+F_/git/SimpleRPC/src/rpc_server.i: F_/git/SimpleRPC/src/rpc_server.c.i
+.PHONY : F_/git/SimpleRPC/src/rpc_server.i
 
 # target to preprocess a source file
-F_/Programming_RPC/src/rpc_server.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_server.c.i
-.PHONY : F_/Programming_RPC/src/rpc_server.c.i
+F_/git/SimpleRPC/src/rpc_server.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_server.c.i
+.PHONY : F_/git/SimpleRPC/src/rpc_server.c.i
 
-F_/Programming_RPC/src/rpc_server.s: F_/Programming_RPC/src/rpc_server.c.s
-.PHONY : F_/Programming_RPC/src/rpc_server.s
+F_/git/SimpleRPC/src/rpc_server.s: F_/git/SimpleRPC/src/rpc_server.c.s
+.PHONY : F_/git/SimpleRPC/src/rpc_server.s
 
 # target to generate assembly for a file
-F_/Programming_RPC/src/rpc_server.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_server.c.s
-.PHONY : F_/Programming_RPC/src/rpc_server.c.s
+F_/git/SimpleRPC/src/rpc_server.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_server.c.s
+.PHONY : F_/git/SimpleRPC/src/rpc_server.c.s
 
 # Help Target
 help:
@@ -233,18 +233,18 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... rpc
-	@echo ... F_/Programming_RPC/src/rpc_buffer.obj
-	@echo ... F_/Programming_RPC/src/rpc_buffer.i
-	@echo ... F_/Programming_RPC/src/rpc_buffer.s
-	@echo ... F_/Programming_RPC/src/rpc_client.obj
-	@echo ... F_/Programming_RPC/src/rpc_client.i
-	@echo ... F_/Programming_RPC/src/rpc_client.s
-	@echo ... F_/Programming_RPC/src/rpc_main.obj
-	@echo ... F_/Programming_RPC/src/rpc_main.i
-	@echo ... F_/Programming_RPC/src/rpc_main.s
-	@echo ... F_/Programming_RPC/src/rpc_server.obj
-	@echo ... F_/Programming_RPC/src/rpc_server.i
-	@echo ... F_/Programming_RPC/src/rpc_server.s
+	@echo ... F_/git/SimpleRPC/src/rpc_buffer.obj
+	@echo ... F_/git/SimpleRPC/src/rpc_buffer.i
+	@echo ... F_/git/SimpleRPC/src/rpc_buffer.s
+	@echo ... F_/git/SimpleRPC/src/rpc_client.obj
+	@echo ... F_/git/SimpleRPC/src/rpc_client.i
+	@echo ... F_/git/SimpleRPC/src/rpc_client.s
+	@echo ... F_/git/SimpleRPC/src/rpc_main.obj
+	@echo ... F_/git/SimpleRPC/src/rpc_main.i
+	@echo ... F_/git/SimpleRPC/src/rpc_main.s
+	@echo ... F_/git/SimpleRPC/src/rpc_server.obj
+	@echo ... F_/git/SimpleRPC/src/rpc_server.i
+	@echo ... F_/git/SimpleRPC/src/rpc_server.s
 .PHONY : help
 
 

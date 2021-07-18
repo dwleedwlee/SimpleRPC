@@ -52,10 +52,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = F:\Programming_RPC\build
+CMAKE_SOURCE_DIR = F:\git\SimpleRPC\build
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = F:\Programming_RPC\build
+CMAKE_BINARY_DIR = F:\git\SimpleRPC\build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/rpc.dir/depend.make
@@ -68,81 +68,81 @@ include CMakeFiles/rpc.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/rpc.dir/flags.make
 
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_main.c.obj: CMakeFiles/rpc.dir/flags.make
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_main.c.obj: F:/Programming_RPC/src/rpc_main.c
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_main.c.obj: CMakeFiles/rpc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\Programming_RPC\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_main.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_main.c.obj -MF CMakeFiles\rpc.dir\F_\Programming_RPC\src\rpc_main.c.obj.d -o CMakeFiles\rpc.dir\F_\Programming_RPC\src\rpc_main.c.obj -c F:\Programming_RPC\src\rpc_main.c
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_main.c.obj: CMakeFiles/rpc.dir/flags.make
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_main.c.obj: F:/git/SimpleRPC/src/rpc_main.c
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_main.c.obj: CMakeFiles/rpc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\git\SimpleRPC\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_main.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_main.c.obj -MF CMakeFiles\rpc.dir\F_\git\SimpleRPC\src\rpc_main.c.obj.d -o CMakeFiles\rpc.dir\F_\git\SimpleRPC\src\rpc_main.c.obj -c F:\git\SimpleRPC\src\rpc_main.c
 
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_main.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E F:\Programming_RPC\src\rpc_main.c > CMakeFiles\rpc.dir\F_\Programming_RPC\src\rpc_main.c.i
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_main.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E F:\git\SimpleRPC\src\rpc_main.c > CMakeFiles\rpc.dir\F_\git\SimpleRPC\src\rpc_main.c.i
 
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_main.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S F:\Programming_RPC\src\rpc_main.c -o CMakeFiles\rpc.dir\F_\Programming_RPC\src\rpc_main.c.s
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_main.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S F:\git\SimpleRPC\src\rpc_main.c -o CMakeFiles\rpc.dir\F_\git\SimpleRPC\src\rpc_main.c.s
 
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_server.c.obj: CMakeFiles/rpc.dir/flags.make
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_server.c.obj: F:/Programming_RPC/src/rpc_server.c
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_server.c.obj: CMakeFiles/rpc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\Programming_RPC\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_server.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_server.c.obj -MF CMakeFiles\rpc.dir\F_\Programming_RPC\src\rpc_server.c.obj.d -o CMakeFiles\rpc.dir\F_\Programming_RPC\src\rpc_server.c.obj -c F:\Programming_RPC\src\rpc_server.c
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_server.c.obj: CMakeFiles/rpc.dir/flags.make
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_server.c.obj: F:/git/SimpleRPC/src/rpc_server.c
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_server.c.obj: CMakeFiles/rpc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\git\SimpleRPC\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_server.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_server.c.obj -MF CMakeFiles\rpc.dir\F_\git\SimpleRPC\src\rpc_server.c.obj.d -o CMakeFiles\rpc.dir\F_\git\SimpleRPC\src\rpc_server.c.obj -c F:\git\SimpleRPC\src\rpc_server.c
 
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_server.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_server.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E F:\Programming_RPC\src\rpc_server.c > CMakeFiles\rpc.dir\F_\Programming_RPC\src\rpc_server.c.i
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_server.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_server.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E F:\git\SimpleRPC\src\rpc_server.c > CMakeFiles\rpc.dir\F_\git\SimpleRPC\src\rpc_server.c.i
 
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_server.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_server.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S F:\Programming_RPC\src\rpc_server.c -o CMakeFiles\rpc.dir\F_\Programming_RPC\src\rpc_server.c.s
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_server.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_server.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S F:\git\SimpleRPC\src\rpc_server.c -o CMakeFiles\rpc.dir\F_\git\SimpleRPC\src\rpc_server.c.s
 
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_client.c.obj: CMakeFiles/rpc.dir/flags.make
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_client.c.obj: F:/Programming_RPC/src/rpc_client.c
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_client.c.obj: CMakeFiles/rpc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\Programming_RPC\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_client.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_client.c.obj -MF CMakeFiles\rpc.dir\F_\Programming_RPC\src\rpc_client.c.obj.d -o CMakeFiles\rpc.dir\F_\Programming_RPC\src\rpc_client.c.obj -c F:\Programming_RPC\src\rpc_client.c
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_client.c.obj: CMakeFiles/rpc.dir/flags.make
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_client.c.obj: F:/git/SimpleRPC/src/rpc_client.c
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_client.c.obj: CMakeFiles/rpc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\git\SimpleRPC\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_client.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_client.c.obj -MF CMakeFiles\rpc.dir\F_\git\SimpleRPC\src\rpc_client.c.obj.d -o CMakeFiles\rpc.dir\F_\git\SimpleRPC\src\rpc_client.c.obj -c F:\git\SimpleRPC\src\rpc_client.c
 
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_client.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_client.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E F:\Programming_RPC\src\rpc_client.c > CMakeFiles\rpc.dir\F_\Programming_RPC\src\rpc_client.c.i
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_client.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_client.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E F:\git\SimpleRPC\src\rpc_client.c > CMakeFiles\rpc.dir\F_\git\SimpleRPC\src\rpc_client.c.i
 
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_client.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_client.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S F:\Programming_RPC\src\rpc_client.c -o CMakeFiles\rpc.dir\F_\Programming_RPC\src\rpc_client.c.s
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_client.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_client.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S F:\git\SimpleRPC\src\rpc_client.c -o CMakeFiles\rpc.dir\F_\git\SimpleRPC\src\rpc_client.c.s
 
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_buffer.c.obj: CMakeFiles/rpc.dir/flags.make
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_buffer.c.obj: F:/Programming_RPC/src/rpc_buffer.c
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_buffer.c.obj: CMakeFiles/rpc.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\Programming_RPC\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_buffer.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_buffer.c.obj -MF CMakeFiles\rpc.dir\F_\Programming_RPC\src\rpc_buffer.c.obj.d -o CMakeFiles\rpc.dir\F_\Programming_RPC\src\rpc_buffer.c.obj -c F:\Programming_RPC\src\rpc_buffer.c
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_buffer.c.obj: CMakeFiles/rpc.dir/flags.make
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_buffer.c.obj: F:/git/SimpleRPC/src/rpc_buffer.c
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_buffer.c.obj: CMakeFiles/rpc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\git\SimpleRPC\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_buffer.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_buffer.c.obj -MF CMakeFiles\rpc.dir\F_\git\SimpleRPC\src\rpc_buffer.c.obj.d -o CMakeFiles\rpc.dir\F_\git\SimpleRPC\src\rpc_buffer.c.obj -c F:\git\SimpleRPC\src\rpc_buffer.c
 
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_buffer.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_buffer.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E F:\Programming_RPC\src\rpc_buffer.c > CMakeFiles\rpc.dir\F_\Programming_RPC\src\rpc_buffer.c.i
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_buffer.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_buffer.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E F:\git\SimpleRPC\src\rpc_buffer.c > CMakeFiles\rpc.dir\F_\git\SimpleRPC\src\rpc_buffer.c.i
 
-CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_buffer.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_buffer.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S F:\Programming_RPC\src\rpc_buffer.c -o CMakeFiles\rpc.dir\F_\Programming_RPC\src\rpc_buffer.c.s
+CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_buffer.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_buffer.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S F:\git\SimpleRPC\src\rpc_buffer.c -o CMakeFiles\rpc.dir\F_\git\SimpleRPC\src\rpc_buffer.c.s
 
 # Object files for target rpc
 rpc_OBJECTS = \
-"CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_main.c.obj" \
-"CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_server.c.obj" \
-"CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_client.c.obj" \
-"CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_buffer.c.obj"
+"CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_main.c.obj" \
+"CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_server.c.obj" \
+"CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_client.c.obj" \
+"CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_buffer.c.obj"
 
 # External object files for target rpc
 rpc_EXTERNAL_OBJECTS =
 
-rpc.exe: CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_main.c.obj
-rpc.exe: CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_server.c.obj
-rpc.exe: CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_client.c.obj
-rpc.exe: CMakeFiles/rpc.dir/F_/Programming_RPC/src/rpc_buffer.c.obj
+rpc.exe: CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_main.c.obj
+rpc.exe: CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_server.c.obj
+rpc.exe: CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_client.c.obj
+rpc.exe: CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_buffer.c.obj
 rpc.exe: CMakeFiles/rpc.dir/build.make
 rpc.exe: CMakeFiles/rpc.dir/linklibs.rsp
 rpc.exe: CMakeFiles/rpc.dir/objects1.rsp
 rpc.exe: CMakeFiles/rpc.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=F:\Programming_RPC\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable rpc.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=F:\git\SimpleRPC\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable rpc.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\rpc.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -154,6 +154,6 @@ CMakeFiles/rpc.dir/clean:
 .PHONY : CMakeFiles/rpc.dir/clean
 
 CMakeFiles/rpc.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" F:\Programming_RPC\build F:\Programming_RPC\build F:\Programming_RPC\build F:\Programming_RPC\build F:\Programming_RPC\build\CMakeFiles\rpc.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" F:\git\SimpleRPC\build F:\git\SimpleRPC\build F:\git\SimpleRPC\build F:\git\SimpleRPC\build F:\git\SimpleRPC\build\CMakeFiles\rpc.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rpc.dir/depend
 
