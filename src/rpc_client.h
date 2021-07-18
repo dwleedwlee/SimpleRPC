@@ -20,6 +20,7 @@ typedef enum {
 	RPC_REQUEST_ERR
 }t_rpc_req_ret;
 
+void rpcInitClientInfo(void);
 void rpcRunClientObserver(void);
 t_rpc_req_ret rpcRequestService(t_rpc_item item, t_fp_callback fp);
 

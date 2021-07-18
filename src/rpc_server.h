@@ -26,6 +26,7 @@ typedef struct {
 	t_fp_callback fp;
 }t_rpc_server_info;
 
+void rpcInitServerInfo(void);
 void rpcRunServerObserver(void);
 void rpcRegisterService(t_rpc_item item, t_fp_callback fp);
 void rpcSetProcessStat(t_rpc_item item, t_rpc_process_stat stat);

@@ -15,7 +15,7 @@ void printResponse(t_rpc_item item) {
 	printf("\n[%d]: %s", item, buf);
 }
 
-void reservePrintResponse(t_rpc_item item) {
+void reversePrintResponse(t_rpc_item item) {
 	uint8 buf[RPC_DATA_BUF_SIZE];
 	uint8 idx = 0;
 	sint8 i = 0;
@@ -50,6 +50,9 @@ int main (void) {
 	pthread_t thread_t;
 	int status;
 	
+	rpcInitServerInfo();
+	rpcInitClientInfo();
+	
 	if(pthread_create(&thread_t, NULL, runObserverThread, NULL) < 0) {
 		perror("Couldn't run observer!!!");
 		exit(0);
@@ -63,11 +66,11 @@ int main (void) {
 	usleep(10000);	
 	rpcRequestService(RPC_GENERAL_ITEM_5, printResponse);	
 	usleep(10000);	
-	rpcRequestService(RPC_GENERAL_ITEM_7, reservePrintResponse);	
+	rpcRequestService(RPC_GENERAL_ITEM_7, reversePrintResponse);	
 	usleep(10000);	
-	rpcRequestService(RPC_GENERAL_ITEM_5, reservePrintResponse);
+	rpcRequestService(RPC_GENERAL_ITEM_5, reversePrintResponse);
 	usleep(10000);
-	rpcRequestService(RPC_GENERAL_ITEM_3, reservePrintResponse);
+	rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse);
 	
 	pthread_join(thread_t, (void **)&status);
 

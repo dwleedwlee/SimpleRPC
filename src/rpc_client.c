@@ -3,12 +3,15 @@
 #include "rpc_client.h"
 #include "rpc_buffer.h"
 
-static t_rpc_client_info g_rpcClientInfo[RPC_GENERAL_ITEM_MAX] = {
-	{
-		.stat = RPC_CLIENT_READY,
-		.fp = NULLPTR
-	},
-};
+static t_rpc_client_info g_rpcClientInfo[RPC_GENERAL_ITEM_MAX];
+
+void rpcInitClientInfo(void) {
+	t_rpc_item i;
+	for(i = RPC_GENERAL_ITEM_START; i < RPC_GENERAL_ITEM_MAX; i++) {
+		g_rpcClientInfo[i].stat = RPC_CLIENT_READY;
+		g_rpcClientInfo[i].fp = NULLPTR;
+	}
+}
 
 void rpcRunClientObserver(void) {
 	t_rpc_item i;
