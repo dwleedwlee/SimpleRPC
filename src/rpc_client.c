@@ -57,10 +57,15 @@ t_rpc_req_ret rpcRequestService(t_rpc_item item, t_fp_cli_callback fp) {
 	t_rpc_req_ret ret;
 	
 	if(g_rpcClientInfo[item].stat == RPC_CLIENT_READY) {
-		rpcClientStatWrite(item, RPC_CLIENT_REQUEST);
-		g_rpcClientInfo[item].stat = RPC_CLIENT_REQUEST;
-		g_rpcClientInfo[item].fp = fp;
-		ret = RPC_REQUEST_OK;
+		const t_rpc_server_stat srvStat = rpcServerStatRead(item);
+		if(srvStat == RPC_SERVER_READY) {
+			rpcClientStatWrite(item, RPC_CLIENT_REQUEST);
+			g_rpcClientInfo[item].stat = RPC_CLIENT_REQUEST;
+			g_rpcClientInfo[item].fp = fp;
+			ret = RPC_REQUEST_OK;
+		} else {
+			ret = RPC_REQUEST_ERR;
+		}
 	} else {
 		ret = RPC_REQUEST_ERR;
 	}
