@@ -55,8 +55,8 @@ CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_main.c.obj: F:/git/SimpleRPC/src/rpc
   C:/MinGW/include/time.h \
   C:/MinGW/include/sched.h \
   F:/git/SimpleRPC/src/rpc_item.h \
-  F:/git/SimpleRPC/src/rpc_server.h \
   F:/git/SimpleRPC/src/type.h \
+  F:/git/SimpleRPC/src/rpc_server.h \
   F:/git/SimpleRPC/src/rpc_client.h \
   F:/git/SimpleRPC/src/rpc_buffer.h
 

@@ -13,6 +13,7 @@ void printResponse(t_rpc_item item) {
 	uint8 buf[RPC_DATA_BUF_SIZE];
 	rpcRspDataRead(item, buf);
 	printf("\nClient[%d]: %s", item, buf);
+	fflush(stdout);
 }
 
 void reversePrintResponse(t_rpc_item item) {
@@ -28,10 +29,12 @@ void reversePrintResponse(t_rpc_item item) {
 	for(i = (idx - 1); i >= 0; i--) {
 		printf("%c", buf[i]);
 	}
+	fflush(stdout);
 }
 
 void processRequest(t_rpc_item item, uint8 *req_data) {
 	printf("\nServer[%d]: %s", item, req_data);
+	fflush(stdout);
 	uint8 buf[] = "RPC IS RUNNING!!!";
 	rpcRspDataWrite(item, buf, sizeof(buf));
 	rpcSetProcessStat(item, RPC_PROCESS_OK);
@@ -50,9 +53,13 @@ void *runObserverThread(void *arg) {
 int main (void) {
 	pthread_t thread_t;
 	int status;
-	uint8 reqData1[] = "RPC REQUEST BROWN";
-	uint8 reqData2[] = "RPC REQUEST GREEN";
-	uint8 reqData3[] = "RPC REQUEST BLUE";
+	t_rpc_buf reqData[5] = {
+		{"RPC REQUEST - START", sizeof("RPC REQUEST - START")},
+		{"RPC REQUEST - Did you get?", sizeof("RPC REQUEST - Did you get?")},
+		{"RPC REQUEST - FINISH", sizeof("RPC REQUEST - FINISH")},
+		{"CREATEIVE #### $$$$", sizeof("CREATEIVE #### $$$$")},
+		{"0103452345_GOT_IT? ____________  OK", sizeof("0103452345_GOT_IT? ____________  OK")}
+	};
 	
 	rpcInitServerInfo();
 	rpcInitClientInfo();
@@ -66,18 +73,36 @@ int main (void) {
 	rpcRegisterService(RPC_GENERAL_ITEM_5, processRequest);
 	rpcRegisterService(RPC_GENERAL_ITEM_7, processRequest);
 	
-	rpcReqDataWrite(RPC_GENERAL_ITEM_3, reqData1, sizeof(reqData1));
-	rpcRequestService(RPC_GENERAL_ITEM_3, printResponse);	
+	
+	if(rpcRequestService(RPC_GENERAL_ITEM_3, printResponse, &reqData[0]) == RPC_REQUEST_OK) {
+		
+	}
 	usleep(10000);
-	rpcReqDataWrite(RPC_GENERAL_ITEM_5, reqData2, sizeof(reqData2));
-	rpcRequestService(RPC_GENERAL_ITEM_5, printResponse);	
+	
+	
+	if(rpcRequestService(RPC_GENERAL_ITEM_5, printResponse, &reqData[1]) == RPC_REQUEST_OK) {
+		
+	}		
 	usleep(10000);
-	rpcReqDataWrite(RPC_GENERAL_ITEM_7, reqData3, sizeof(reqData3));
-	rpcRequestService(RPC_GENERAL_ITEM_7, reversePrintResponse);	
-	usleep(10000);	
-	rpcRequestService(RPC_GENERAL_ITEM_5, reversePrintResponse);
+	
+	
+	if(rpcRequestService(RPC_GENERAL_ITEM_7, reversePrintResponse, &reqData[2]) == RPC_REQUEST_OK) {
+		
+	}		
 	usleep(10000);
-	rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse);
+	
+	if(rpcRequestService(RPC_GENERAL_ITEM_5, reversePrintResponse, &reqData[0]) == RPC_REQUEST_OK) {
+		rpcRequestService(RPC_GENERAL_ITEM_5, reversePrintResponse, &reqData[3]);		
+	}
+	usleep(10000);
+	
+	if(rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &reqData[1]) == RPC_REQUEST_OK) {
+		rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &reqData[3]);
+		rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &reqData[2]);
+		rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &reqData[1]);
+		rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &reqData[0]);
+		rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &reqData[4]);
+	}
 	
 	pthread_join(thread_t, (void **)&status);
 

@@ -7,17 +7,10 @@
 #include "rpc_server.h"
 #include "rpc_client.h"
 
-#define RPC_DATA_BUF_SIZE	(32)
-
 typedef struct {
 	t_rpc_server_stat srvStat;
 	t_rpc_client_stat cliStat;
 }t_rpc_stat_info;
-
-typedef struct {
-	uint8 buf[RPC_DATA_BUF_SIZE];
-	uint8 size;
-}t_rpc_buf;
 
 typedef struct {
 	t_rpc_buf reqDataBuf;
