@@ -29,7 +29,7 @@ void rpcRunClientObserver(void) {
 			
 			case RPC_CLIENT_READY:
 			#ifdef FEATURE_DUAL_BUFFER
-				/* SET MUTEX */
+				/* MUTEX LOCK */
 				if(gDualBufInfo[i].stat != DUAL_BUF_STAT_EMPTY) {
 					const t_rpc_server_stat srvStat = rpcServerStatRead(i);
 					if(srvStat == RPC_SERVER_READY) {
@@ -47,7 +47,7 @@ void rpcRunClientObserver(void) {
 						}						
 					}
 				}
-				/* CLEAR MUTEX */
+				/* MUTEX UNLOCK */
 			#endif
 				break;
 				
@@ -84,7 +84,7 @@ void rpcRunClientObserver(void) {
 
 #ifdef FEATURE_DUAL_BUFFER
 t_rpc_req_ret rpcRequestService(t_rpc_item item, t_fp_cli_callback fp, t_rpc_buf *rpc_buf) {
-	/* SET MUTEX */
+	/* MUTEX LOCK */
 	switch(gDualBufInfo[item].stat) {
 		uint8 idx;
 		case DUAL_BUF_STAT_EMPTY:
@@ -109,7 +109,7 @@ t_rpc_req_ret rpcRequestService(t_rpc_item item, t_fp_cli_callback fp, t_rpc_buf
 		default:
 			break;
 	}
-	/* CLEAR MUTEX */
+	/* MUTEX UNLOCK */
 	return RPC_REQUEST_OK;
 }
 #else

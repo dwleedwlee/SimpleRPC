@@ -42,7 +42,7 @@ void processRequest(t_rpc_item item, uint8 *req_data) {
 
 void *runObserverThread(void *arg) {
 
-	while(1) {
+	while(1) {		
 		rpcRunServerObserver();
 		rpcRunClientObserver();
 	}
@@ -54,11 +54,11 @@ int main (void) {
 	pthread_t thread_t;
 	int status;
 	t_rpc_buf reqData[5] = {
-		{"RPC REQUEST - START", sizeof("RPC REQUEST - START")},
-		{"RPC REQUEST - Did you get?", sizeof("RPC REQUEST - Did you get?")},
-		{"RPC REQUEST - FINISH", sizeof("RPC REQUEST - FINISH")},
-		{"CREATEIVE #### $$$$", sizeof("CREATEIVE #### $$$$")},
-		{"0103452345_GOT_IT? ____________  OK", sizeof("0103452345_GOT_IT? ____________  OK")}
+		{"RPC REQUEST - START", sizeof("RPC REQUEST - START")+1},
+		{"RPC REQUEST - Did you get?", sizeof("RPC REQUEST - Did you get?")+1},
+		{"RPC REQUEST - FINISH", sizeof("RPC REQUEST - FINISH")+1},
+		{"CREATEIVE #### $$$$", sizeof("CREATEIVE #### $$$$")+1},
+		{"0103452345_GOT_IT?_____OK", sizeof("0103452345_GOT_IT?_____OK")+1}
 	};
 	
 	rpcInitServerInfo();
