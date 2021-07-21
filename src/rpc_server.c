@@ -28,13 +28,15 @@ void rpcRunServerObserver(void) {
 					if(fp != NULLPTR) {
 						uint8 buf[RPC_DATA_BUF_SIZE];
 						rpcReqDataRead(i, buf);
-						rpcServerStatWrite(i, RPC_SERVER_ACCEPT);
+						
 						g_rpcServerInfo[i].stat = RPC_SERVER_ACCEPT;
 						g_rpcServerInfo[i].processStat = RPC_PROCESS_PENDING;
+						
+						rpcServerStatWrite(i, RPC_SERVER_ACCEPT);
 						fp(i, buf); /* Blocking Call */
 					} else {
-						rpcServerStatWrite(i, RPC_SERVER_UNDEFINED);
 						g_rpcServerInfo[i].stat = RPC_SERVER_UNDEFINED;
+						rpcServerStatWrite(i, RPC_SERVER_UNDEFINED);						
 					}				
 				}
 			}
@@ -44,12 +46,12 @@ void rpcRunServerObserver(void) {
 			{
 				t_rpc_process_stat processStat = g_rpcServerInfo[i].processStat;
 				if(processStat != RPC_PROCESS_PENDING) {
-					if(processStat == RPC_PROCESS_OK) {
-						rpcServerStatWrite(i, RPC_SERVER_FINISH);
+					if(processStat == RPC_PROCESS_OK) {						
 						g_rpcServerInfo[i].stat = RPC_SERVER_FINISH;
-					} else {
-						rpcServerStatWrite(i, RPC_SERVER_ERROR);
+						rpcServerStatWrite(i, RPC_SERVER_FINISH);
+					} else {						
 						g_rpcServerInfo[i].stat = RPC_SERVER_ERROR;
+						rpcServerStatWrite(i, RPC_SERVER_ERROR);
 					}
 					g_rpcServerInfo[i].processStat = RPC_PROCESS_REDAY;
 				}
@@ -61,9 +63,9 @@ void rpcRunServerObserver(void) {
 			case RPC_SERVER_FINISH:
 			{
 				const t_rpc_client_stat cliStat = rpcClientStatRead(i);
-				if(cliStat == RPC_CLIENT_READY) {
-					rpcServerStatWrite(i, RPC_SERVER_READY);
+				if(cliStat == RPC_CLIENT_READY) {					
 					g_rpcServerInfo[i].stat = RPC_SERVER_READY;
+					rpcServerStatWrite(i, RPC_SERVER_READY);
 				}
 			}
 				break;
