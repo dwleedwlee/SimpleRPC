@@ -8,15 +8,16 @@
 #include "rpc_client.h"
 #include "rpc_buffer.h"
 
+#define NUMBER_OBSERVER_THREAD	(2)
 
-void printResponse(t_rpc_item item) {
+static void printResponse(t_rpc_item item) {
 	uint8 buf[RPC_DATA_BUF_SIZE];
 	rpcRspDataRead(item, buf);
 	printf("\nClient[%d]: %s", item, buf);
 	fflush(stdout);
 }
 
-void reversePrintResponse(t_rpc_item item) {
+static void reversePrintResponse(t_rpc_item item) {
 	uint8 buf[RPC_DATA_BUF_SIZE];
 	uint8 idx = 0;
 	sint8 i = 0;
@@ -32,7 +33,7 @@ void reversePrintResponse(t_rpc_item item) {
 	fflush(stdout);
 }
 
-void processRequest(t_rpc_item item, uint8 *req_data) {
+static void processRequest(t_rpc_item item, uint8 *req_data) {
 	printf("\nServer[%d]: %s", item, req_data);
 	fflush(stdout);
 	uint8 buf[] = "RPC IS RUNNING!!!";
@@ -40,10 +41,18 @@ void processRequest(t_rpc_item item, uint8 *req_data) {
 	rpcSetProcessStat(item, RPC_PROCESS_OK);
 }
 
-void *runObserverThread(void *arg) {
+static void *runServerObserverThread(void *arg) {
 
 	while(1) {		
 		rpcRunServerObserver();
+	}
+	
+	return NULL;
+}
+
+static void *runClientObserverThread(void *arg) {
+
+	while(1) {		
 		rpcRunClientObserver();
 	}
 	
@@ -51,8 +60,14 @@ void *runObserverThread(void *arg) {
 }
 
 int main (void) {
-	pthread_t thread_t;
-	int status;
+	pthread_t thread_t[NUMBER_OBSERVER_THREAD];
+	void *(*fpThread[NUMBER_OBSERVER_THREAD])(void *arg) = 
+	{
+		runServerObserverThread,
+		runClientObserverThread
+	};	
+	uint8 thread_status[NUMBER_OBSERVER_THREAD];
+	
 	t_rpc_buf reqData[5] = {
 		{"RPC REQUEST - START", sizeof("RPC REQUEST - START")+1},
 		{"RPC REQUEST - Did you get?", sizeof("RPC REQUEST - Did you get?")+1},
@@ -61,13 +76,16 @@ int main (void) {
 		{"0103452345_GOT_IT?_____OK", sizeof("0103452345_GOT_IT?_____OK")+1}
 	};
 	
-	rpcInitServerInfo();
-	rpcInitClientInfo();
-	
-	if(pthread_create(&thread_t, NULL, runObserverThread, NULL) < 0) {
-		perror("Couldn't run observer!!!");
-		exit(0);
+	uint8 i;
+	for(i = 0; i < NUMBER_OBSERVER_THREAD; i++) {
+		if(pthread_create(&thread_t[i], NULL, fpThread[i], NULL) < 0) {
+			printf("Couldn't run observer %d!!!\n", i);
+			exit(0);
+		}
 	}
+	
+	rpcInitServerInfo();
+	rpcInitClientInfo();	
 	
 	rpcRegisterService(RPC_GENERAL_ITEM_3, processRequest);
 	rpcRegisterService(RPC_GENERAL_ITEM_5, processRequest);
@@ -104,7 +122,9 @@ int main (void) {
 		rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &reqData[4]);
 	}
 	
-	pthread_join(thread_t, (void **)&status);
+	for(i = 0; i < NUMBER_OBSERVER_THREAD; i++) {
+		pthread_join(thread_t[i], (void **)&thread_status[i]);
+	}
 
 	return 0;
 }
