@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_main.c.obj.d"
   "CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_server.c.obj"
   "CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_server.c.obj.d"
+  "CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_util.c.obj"
+  "CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_util.c.obj.d"
   "librpc.dll.a"
   "rpc.exe"
   "rpc.exe.manifest"

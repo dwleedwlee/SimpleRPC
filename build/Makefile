@@ -224,6 +224,30 @@ F_/git/SimpleRPC/src/rpc_server.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_server.c.s
 .PHONY : F_/git/SimpleRPC/src/rpc_server.c.s
 
+F_/git/SimpleRPC/src/rpc_util.obj: F_/git/SimpleRPC/src/rpc_util.c.obj
+.PHONY : F_/git/SimpleRPC/src/rpc_util.obj
+
+# target to build an object file
+F_/git/SimpleRPC/src/rpc_util.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_util.c.obj
+.PHONY : F_/git/SimpleRPC/src/rpc_util.c.obj
+
+F_/git/SimpleRPC/src/rpc_util.i: F_/git/SimpleRPC/src/rpc_util.c.i
+.PHONY : F_/git/SimpleRPC/src/rpc_util.i
+
+# target to preprocess a source file
+F_/git/SimpleRPC/src/rpc_util.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_util.c.i
+.PHONY : F_/git/SimpleRPC/src/rpc_util.c.i
+
+F_/git/SimpleRPC/src/rpc_util.s: F_/git/SimpleRPC/src/rpc_util.c.s
+.PHONY : F_/git/SimpleRPC/src/rpc_util.s
+
+# target to generate assembly for a file
+F_/git/SimpleRPC/src/rpc_util.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\rpc.dir\build.make CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_util.c.s
+.PHONY : F_/git/SimpleRPC/src/rpc_util.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -245,6 +269,9 @@ help:
 	@echo ... F_/git/SimpleRPC/src/rpc_server.obj
 	@echo ... F_/git/SimpleRPC/src/rpc_server.i
 	@echo ... F_/git/SimpleRPC/src/rpc_server.s
+	@echo ... F_/git/SimpleRPC/src/rpc_util.obj
+	@echo ... F_/git/SimpleRPC/src/rpc_util.i
+	@echo ... F_/git/SimpleRPC/src/rpc_util.s
 .PHONY : help
 
 

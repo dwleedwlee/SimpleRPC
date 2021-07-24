@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "F:/git/SimpleRPC/src/rpc_client.c" "CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_client.c.obj" "gcc" "CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_client.c.obj.d"
   "F:/git/SimpleRPC/src/rpc_main.c" "CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_main.c.obj" "gcc" "CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_main.c.obj.d"
   "F:/git/SimpleRPC/src/rpc_server.c" "CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_server.c.obj" "gcc" "CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_server.c.obj.d"
+  "F:/git/SimpleRPC/src/rpc_util.c" "CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_util.c.obj" "gcc" "CMakeFiles/rpc.dir/F_/git/SimpleRPC/src/rpc_util.c.obj.d"
   )
 
 # Targets to which this target links.

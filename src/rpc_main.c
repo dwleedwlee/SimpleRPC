@@ -1,19 +1,17 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <unistd.h>
 #include <pthread.h>
 #include <windows.h>
 #include "rpc_item.h"
 #include "rpc_server.h"
 #include "rpc_client.h"
 #include "rpc_buffer.h"
+#include "rpc_util.h"
 
 #define NUMBER_OBSERVER_THREAD	(2)
-#define NUMBER_CLIENT_THREAD	(5)
+#define NUMBER_CLIENT_THREAD	(6)
 #define NUMBER_REQUEST_DATA		(5)
-
-#define MS_SLEEP(x)			(custom_usleep(x * 1000))
 
 static t_rpc_buf g_reqData[NUMBER_REQUEST_DATA] = {
 	{"RPC REQUEST - START", sizeof("RPC REQUEST - START")+1},
@@ -22,22 +20,6 @@ static t_rpc_buf g_reqData[NUMBER_REQUEST_DATA] = {
 	{"CREATEIVE #### $$$$", sizeof("CREATEIVE #### $$$$")+1},
 	{"0103452345_GOT_IT?_____OK", sizeof("0103452345_GOT_IT?_____OK")+1}
 };
-
-/* Refered to the sample usleep source code - BEGIN */
-static void custom_usleep(__int64 usec) 
-{ 
-    HANDLE timer; 
-    LARGE_INTEGER ft; 
-
-    ft.QuadPart = -(10*usec); // Convert to 100 nanosecond interval, negative value indicates relative time
-
-    timer = CreateWaitableTimer(NULL, TRUE, NULL); 
-    SetWaitableTimer(timer, &ft, 0, NULL, NULL, 0); 
-    WaitForSingleObject(timer, INFINITE); 
-    CloseHandle(timer); 
-}
-/* Refered to the sample usleep source code - END */
-	
 
 static void printResponse(t_rpc_item item) {
 	uint8 buf[RPC_DATA_BUF_SIZE];
@@ -83,27 +65,27 @@ static void processRequest(t_rpc_item item, uint8 *reqData) {
 
 static void *runClientThread1(void *arg) {
 	while(1) {
-		if(rpcRequestService(RPC_GENERAL_ITEM_3, printResponse, &g_reqData[0]) == RPC_REQUEST_OK) {
+		if(rpcRequestService(RPC_GENERAL_ITEM_1, printResponse, &g_reqData[0]) == RPC_REQUEST_OK) {
 			
 		}
-		MS_SLEEP(3);
+		MS_SLEEP(11);
 	}
 	return NULL;
 }
 
 static void *runClientThread2(void *arg) {
 	while(1) {
-		if(rpcRequestService(RPC_GENERAL_ITEM_5, printResponse, &g_reqData[1]) == RPC_REQUEST_OK) {
+		if(rpcRequestService(RPC_GENERAL_ITEM_2, printResponse, &g_reqData[1]) == RPC_REQUEST_OK) {
 			
 		}		
-		MS_SLEEP(5);
+		MS_SLEEP(17);
 	}
 	return NULL;
 }
 
 static void *runClientThread3(void *arg) {
 	while(1) {
-		if(rpcRequestService(RPC_GENERAL_ITEM_7, reversePrintResponse, &g_reqData[2]) == RPC_REQUEST_OK) {
+		if(rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &g_reqData[2]) == RPC_REQUEST_OK) {
 		
 		}		
 		MS_SLEEP(7);
@@ -113,26 +95,39 @@ static void *runClientThread3(void *arg) {
 
 static void *runClientThread4(void *arg) {
 	while(1) {
-		if(rpcRequestService(RPC_GENERAL_ITEM_5, reversePrintResponse, &g_reqData[0]) == RPC_REQUEST_OK) {
-			if(rpcRequestService(RPC_GENERAL_ITEM_5, reversePrintResponse, &g_reqData[3]) == RPC_REQUEST_OK) {
+		if(rpcRequestService(RPC_GENERAL_ITEM_4, reversePrintResponse, &g_reqData[0]) == RPC_REQUEST_OK) {
+			if(rpcRequestService(RPC_GENERAL_ITEM_4, reversePrintResponse, &g_reqData[3]) == RPC_REQUEST_OK) {
 				
 			}	
 		}
-		MS_SLEEP(10);
+		MS_SLEEP(5);
 	}
 	return NULL;
 }
 
 static void *runClientThread5(void *arg) {
 	while(1) {
-		if(rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &g_reqData[1]) == RPC_REQUEST_OK) {
-			rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &g_reqData[3]);
-			rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &g_reqData[2]);
-			rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &g_reqData[1]);
-			rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &g_reqData[0]);
-			rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &g_reqData[4]);
+		if(rpcRequestService(RPC_GENERAL_ITEM_5, reversePrintResponse, &g_reqData[1]) == RPC_REQUEST_OK) {
+			rpcRequestService(RPC_GENERAL_ITEM_5, reversePrintResponse, &g_reqData[3]);
+			rpcRequestService(RPC_GENERAL_ITEM_5, reversePrintResponse, &g_reqData[2]);
+			rpcRequestService(RPC_GENERAL_ITEM_5, reversePrintResponse, &g_reqData[1]);
+			rpcRequestService(RPC_GENERAL_ITEM_5, reversePrintResponse, &g_reqData[0]);
+			rpcRequestService(RPC_GENERAL_ITEM_5, reversePrintResponse, &g_reqData[4]);
 		}
-		MS_SLEEP(5);
+		MS_SLEEP(3);
+	}
+	return NULL;
+}
+
+static void *runClientThread6(void *arg) {
+	while(1) {
+		if(rpcRequestService(RPC_GENERAL_ITEM_6, reversePrintResponse, &g_reqData[3]) == RPC_REQUEST_OK) {
+			MS_SLEEP(2);
+		}
+				
+		if(rpcRequestService(RPC_GENERAL_ITEM_6, reversePrintResponse, &g_reqData[4]) == RPC_REQUEST_OK) {
+			MS_SLEEP(2);
+		}
 	}
 	return NULL;
 }
@@ -171,7 +166,8 @@ int main (void) {
 		runClientThread2,
 		runClientThread3,
 		runClientThread4,
-		runClientThread5
+		runClientThread5,
+		runClientThread6
 	};
 	
 	rpcInitServerInfo();

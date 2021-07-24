@@ -3,6 +3,7 @@
 
 #include "rpc_client.h"
 #include "rpc_buffer.h"
+#include "rpc_util.h"
 
 static t_rpc_client_info g_rpcClientInfo[RPC_GENERAL_ITEM_MAX];
 
@@ -131,6 +132,8 @@ t_rpc_req_ret rpcRequestService(t_rpc_item item, t_fp_cli_callback fp, t_rpc_buf
 t_rpc_req_ret rpcRequestService(t_rpc_item item, t_fp_cli_callback fp, t_rpc_buf *rpc_buf) {
 	t_rpc_req_ret ret;
 	
+	EnterCriticalSection(&CriticalSection);
+	
 	if(g_rpcClientInfo[item].stat == RPC_CLIENT_READY) {
 		const t_rpc_server_stat srvStat = rpcServerStatRead(item);
 		if(srvStat == RPC_SERVER_READY) {
@@ -148,6 +151,9 @@ t_rpc_req_ret rpcRequestService(t_rpc_item item, t_fp_cli_callback fp, t_rpc_buf
 	} else {
 		ret = RPC_REQUEST_ERR;
 	}
+	
+	LeaveCriticalSection(&CriticalSection);
+	
 	return ret;
 }
 #endif
