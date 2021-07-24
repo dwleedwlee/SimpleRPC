@@ -4,8 +4,13 @@ message("project name: ${CMAKE_PROJECT_NAME}")
 message("install dir: ${CMAKE_INSTALL_PREFIX}")
 
 set(CMAKE_CXX_COMPILER "C:/MinGW/bin/gcc")
-set(CMAKE_BUILD_TYPE Release)
-set(SOURCE_FILES ../src/rpc_main.c ../src/rpc_server.c ../src/rpc_client.c ../src/rpc_buffer.c)
+if("$ENV{BLDOPT}" STREQUAL "DEBUG")
+	set(CMAKE_BUILD_TYPE Debug)
+else() 
+	set(CMAKE_BUILD_TYPE Release)
+endif()
+
+file(GLOB_RECURSE SOURCE_FILES ../src/*.c)
 message("set vars: ${SOURCE_FILES}")
 
 add_executable(rpc ${SOURCE_FILES})
