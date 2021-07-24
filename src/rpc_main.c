@@ -11,10 +11,11 @@
 
 #define NUMBER_OBSERVER_THREAD	(2)
 #define NUMBER_CLIENT_THREAD	(5)
+#define NUMBER_REQUEST_DATA		(5)
 
 #define MS_SLEEP(x)			(custom_usleep(x * 1000))
 
-static t_rpc_buf reqData[5] = {
+static t_rpc_buf g_reqData[NUMBER_REQUEST_DATA] = {
 	{"RPC REQUEST - START", sizeof("RPC REQUEST - START")+1},
 	{"RPC REQUEST - Did you get?", sizeof("RPC REQUEST - Did you get?")+1},
 	{"RPC REQUEST - FINISH", sizeof("RPC REQUEST - FINISH")+1},
@@ -61,8 +62,19 @@ static void reversePrintResponse(t_rpc_item item) {
 	fflush(stdout);
 }
 
-static void processRequest(t_rpc_item item, uint8 *req_data) {
-	printf("\nServer[%d]: %s", item, req_data);
+static void processRequest(t_rpc_item item, uint8 *reqData) {
+	printf("\nServer[%d]: %s", item, reqData);
+	uint8 i;
+	for(i = 0; i < NUMBER_REQUEST_DATA; i++) {
+		if(strncmp(g_reqData[i].buf, reqData, g_reqData[i].size) == 0) {
+			break;
+		}
+	}
+	if(i >= NUMBER_REQUEST_DATA) {
+		printf("\nError : Request data is not correct !!!\n");
+		exit(0);
+	}
+	
 	fflush(stdout);
 	uint8 buf[] = "RPC IS RUNNING!!!";
 	rpcRspDataWrite(item, buf, sizeof(buf));
@@ -71,7 +83,7 @@ static void processRequest(t_rpc_item item, uint8 *req_data) {
 
 static void *runClientThread1(void *arg) {
 	while(1) {
-		if(rpcRequestService(RPC_GENERAL_ITEM_3, printResponse, &reqData[0]) == RPC_REQUEST_OK) {
+		if(rpcRequestService(RPC_GENERAL_ITEM_3, printResponse, &g_reqData[0]) == RPC_REQUEST_OK) {
 			
 		}
 		MS_SLEEP(3);
@@ -81,7 +93,7 @@ static void *runClientThread1(void *arg) {
 
 static void *runClientThread2(void *arg) {
 	while(1) {
-		if(rpcRequestService(RPC_GENERAL_ITEM_5, printResponse, &reqData[1]) == RPC_REQUEST_OK) {
+		if(rpcRequestService(RPC_GENERAL_ITEM_5, printResponse, &g_reqData[1]) == RPC_REQUEST_OK) {
 			
 		}		
 		MS_SLEEP(5);
@@ -91,7 +103,7 @@ static void *runClientThread2(void *arg) {
 
 static void *runClientThread3(void *arg) {
 	while(1) {
-		if(rpcRequestService(RPC_GENERAL_ITEM_7, reversePrintResponse, &reqData[2]) == RPC_REQUEST_OK) {
+		if(rpcRequestService(RPC_GENERAL_ITEM_7, reversePrintResponse, &g_reqData[2]) == RPC_REQUEST_OK) {
 		
 		}		
 		MS_SLEEP(7);
@@ -101,8 +113,8 @@ static void *runClientThread3(void *arg) {
 
 static void *runClientThread4(void *arg) {
 	while(1) {
-		if(rpcRequestService(RPC_GENERAL_ITEM_5, reversePrintResponse, &reqData[0]) == RPC_REQUEST_OK) {
-			if(rpcRequestService(RPC_GENERAL_ITEM_5, reversePrintResponse, &reqData[3]) == RPC_REQUEST_OK) {
+		if(rpcRequestService(RPC_GENERAL_ITEM_5, reversePrintResponse, &g_reqData[0]) == RPC_REQUEST_OK) {
+			if(rpcRequestService(RPC_GENERAL_ITEM_5, reversePrintResponse, &g_reqData[3]) == RPC_REQUEST_OK) {
 				
 			}	
 		}
@@ -113,12 +125,12 @@ static void *runClientThread4(void *arg) {
 
 static void *runClientThread5(void *arg) {
 	while(1) {
-		if(rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &reqData[1]) == RPC_REQUEST_OK) {
-			rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &reqData[3]);
-			rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &reqData[2]);
-			rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &reqData[1]);
-			rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &reqData[0]);
-			rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &reqData[4]);
+		if(rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &g_reqData[1]) == RPC_REQUEST_OK) {
+			rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &g_reqData[3]);
+			rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &g_reqData[2]);
+			rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &g_reqData[1]);
+			rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &g_reqData[0]);
+			rpcRequestService(RPC_GENERAL_ITEM_3, reversePrintResponse, &g_reqData[4]);
 		}
 		MS_SLEEP(5);
 	}
@@ -165,11 +177,11 @@ int main (void) {
 	rpcInitServerInfo();
 	rpcInitClientInfo();	
 	
-	rpcRegisterService(RPC_GENERAL_ITEM_3, processRequest);
-	rpcRegisterService(RPC_GENERAL_ITEM_5, processRequest);
-	rpcRegisterService(RPC_GENERAL_ITEM_7, processRequest);
-
 	uint8 i;
+	for(i = 0; i < RPC_GENERAL_ITEM_MAX; i++) {
+		rpcRegisterService(i, processRequest);
+	}
+
 	for(i = 0; i < NUMBER_OBSERVER_THREAD; i++) {
 		if(pthread_create(&observer_thread[i], NULL, fpObserverThread[i], NULL) < 0) {
 			printf("Couldn't run observer %d!!!\n", i);
