@@ -22,6 +22,9 @@ typedef void (*t_fp_cli_callback)(t_rpc_item item);
 typedef struct {
 	t_rpc_client_stat stat;
 	t_fp_cli_callback fp;
+	/* linked array */
+	t_rpc_item prev;
+	t_rpc_item next;
 }t_rpc_client_info;
 
 #ifdef FEATURE_DUAL_BUFFER

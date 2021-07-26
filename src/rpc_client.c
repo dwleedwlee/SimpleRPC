@@ -20,6 +20,11 @@ void rpcInitClientInfo(void) {
 	for(i = RPC_GENERAL_ITEM_START; i < RPC_GENERAL_ITEM_MAX; i++) {
 		g_rpcClientInfo[i].stat = RPC_CLIENT_READY;
 		g_rpcClientInfo[i].fp = NULLPTR;
+		
+		/* linked array */
+		g_rpcClientInfo[i].prev = RPC_GENERAL_ITEM_START;
+		g_rpcClientInfo[i].next = RPC_GENERAL_ITEM_START;
+		
 		#ifdef FEATURE_DUAL_BUFFER
 		gDualBufInfo[i].active_buf_idx = FALSE;
 		gDualBufInfo[i].stat = DUAL_BUF_STAT_EMPTY;
@@ -27,10 +32,28 @@ void rpcInitClientInfo(void) {
 	}
 }
 
+static void linkedArrayInsertItem(t_rpc_item item) {
+	/* linked array - insert the item next to the head */
+	t_rpc_item next = g_rpcClientInfo[RPC_GENERAL_ITEM_START].next;
+	g_rpcClientInfo[RPC_GENERAL_ITEM_START].next = item;
+	g_rpcClientInfo[item].prev = RPC_GENERAL_ITEM_START;
+	g_rpcClientInfo[item].next = next;
+	g_rpcClientInfo[next].prev = item;
+	
+}
+
+static void linkedArrayDeleteItem(t_rpc_item item) {
+	/* linked array - delete the item */			
+	t_rpc_item prev = g_rpcClientInfo[item].prev;
+	t_rpc_item next = g_rpcClientInfo[item].next;
+	g_rpcClientInfo[prev].next = g_rpcClientInfo[item].next;
+	g_rpcClientInfo[next].prev = g_rpcClientInfo[item].prev;
+}
+
 void rpcRunClientObserver(void) {
 	t_rpc_item i;
-	for(i = RPC_GENERAL_ITEM_START; i < RPC_GENERAL_ITEM_MAX; i++) {
-		
+	
+	for(i = g_rpcClientInfo[RPC_GENERAL_ITEM_START].next; i != RPC_GENERAL_ITEM_START; i = g_rpcClientInfo[i].next) {
 		switch (g_rpcClientInfo[i].stat) {
 			
 			case RPC_CLIENT_READY:
@@ -50,6 +73,8 @@ void rpcRunClientObserver(void) {
 						rpcClientStatWrite(i, RPC_CLIENT_REQUEST);
 					
 						if(gDualBufInfo[i].stat == DUAL_BUF_STAT_SINGLE) {
+							linkedArrayDeleteItem(i);
+						
 							gDualBufInfo[i].stat = DUAL_BUF_STAT_EMPTY;
 						} else { /* DUAL_BUF_STAT_FULL */
 							gDualBufInfo[i].active_buf_idx = (gDualBufInfo[i].active_buf_idx + 1) % 2;
@@ -78,7 +103,10 @@ void rpcRunClientObserver(void) {
 						t_fp_cli_callback fp = g_rpcClientInfo[i].fp;						
 						if(fp != NULLPTR) {
 							fp(i); /* Blocking Call */
-						}						
+						}
+					#ifndef FEATURE_DUAL_BUFFER
+						linkedArrayDeleteItem(i);						
+					#endif
 						g_rpcClientInfo[i].stat = RPC_CLIENT_READY;
 						rpcClientStatWrite(i, RPC_CLIENT_READY);
 					}
@@ -106,7 +134,10 @@ t_rpc_req_ret rpcRequestService(t_rpc_item item, t_fp_cli_callback fp, t_rpc_buf
 			
 			idx = gDualBufInfo[item].active_buf_idx;
 			gDualBufInfo[item].fp[idx] = fp;
-			gDualBufInfo[item].rpc_buf[idx] = *rpc_buf;			
+			gDualBufInfo[item].rpc_buf[idx] = *rpc_buf;	
+			
+			linkedArrayInsertItem(item);			
+			
 			break;
 		case DUAL_BUF_STAT_SINGLE:
 			gDualBufInfo[item].stat = DUAL_BUF_STAT_FULL;
@@ -143,6 +174,8 @@ t_rpc_req_ret rpcRequestService(t_rpc_item item, t_fp_cli_callback fp, t_rpc_buf
 			g_rpcClientInfo[item].fp = fp;
 			
 			rpcClientStatWrite(item, RPC_CLIENT_REQUEST);
+			
+			linkedArrayInsertItem(item);
 			
 			ret = RPC_REQUEST_OK;
 		} else {
