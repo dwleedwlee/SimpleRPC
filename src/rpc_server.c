@@ -35,8 +35,8 @@ void rpcRunServerObserver(void) {
 						rpcServerStatWrite(i, RPC_SERVER_ACCEPT);
 						fp(i, buf); /* Blocking Call */
 					} else {
-						g_rpcServerInfo[i].stat = RPC_SERVER_UNDEFINED;
-						rpcServerStatWrite(i, RPC_SERVER_UNDEFINED);						
+						g_rpcServerInfo[i].stat = RPC_SERVER_REJECT;
+						rpcServerStatWrite(i, RPC_SERVER_REJECT);						
 					}				
 				}
 			}
@@ -58,7 +58,7 @@ void rpcRunServerObserver(void) {
 			}			
 				break;
 			
-			case RPC_SERVER_UNDEFINED:
+			case RPC_SERVER_REJECT:
 			case RPC_SERVER_ERROR:
 			case RPC_SERVER_FINISH:
 			{

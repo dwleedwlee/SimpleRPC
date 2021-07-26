@@ -96,7 +96,7 @@ void rpcRunClientObserver(void) {
 					case RPC_SERVER_ACCEPT:
 						/* Checking Timeout */ 
 						break;
-					case RPC_SERVER_UNDEFINED:
+					case RPC_SERVER_REJECT:
 					case RPC_SERVER_ERROR:
 					case RPC_SERVER_FINISH:
 					{
