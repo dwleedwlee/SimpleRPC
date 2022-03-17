@@ -31,7 +31,7 @@ static t_rpc_server_info g_rpcServerInfo[RPC_GENERAL_ITEM_MAX];
 void rpcInitServerInfo(void) {
 	t_rpc_item i;
 	for(i = RPC_GENERAL_ITEM_START; i < RPC_GENERAL_ITEM_MAX; i++) {
-		g_rpcServerInfo[i].stat = RPC_CLIENT_READY;
+		g_rpcServerInfo[i].stat = RPC_SERVER_READY;
 		g_rpcServerInfo[i].processStat = RPC_PROCESS_REDAY;
 		g_rpcServerInfo[i].fp = NULLPTR;
 	}
