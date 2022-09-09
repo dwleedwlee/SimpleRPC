@@ -1,3 +1,0 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\rpc.dir/objects.a
-C:\MinGW\bin\ar.exe qc CMakeFiles\rpc.dir/objects.a @CMakeFiles\rpc.dir\objects1.rsp
-C:\MinGW\bin\gcc.exe -O3 -DNDEBUG -Wl,--whole-archive CMakeFiles\rpc.dir/objects.a -Wl,--no-whole-archive -o rpc.exe -Wl,--out-implib,librpc.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\rpc.dir\linklibs.rsp
