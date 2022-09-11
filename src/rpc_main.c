@@ -181,7 +181,7 @@ int main (void) {
 		runServerObserverThread,
 		runClientObserverThread
 	};	
-	uint8 observerThreadStatus[NUMBER_OBSERVER_THREAD];	
+	void *observerThreadStatus[NUMBER_OBSERVER_THREAD];	
 	
 	void *(*fpClientThread[NUMBER_CLIENT_THREAD])(void *arg) = {
 		runClientThread1,
@@ -215,7 +215,7 @@ int main (void) {
 	}	
 	
 	for(i = 0; i < NUMBER_OBSERVER_THREAD; i++) {
-		pthread_join(observer_thread[i], (void *)&observerThreadStatus[i]);
+		pthread_join(observer_thread[i], &observerThreadStatus[i]);
 	}
 
 	return 0;
