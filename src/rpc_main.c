@@ -215,7 +215,7 @@ int main (void) {
 	}	
 	
 	for(i = 0; i < NUMBER_OBSERVER_THREAD; i++) {
-		pthread_join(observer_thread[i], (void **)&observerThreadStatus[i]);
+		pthread_join(observer_thread[i], (void *)&observerThreadStatus[i]);
 	}
 
 	return 0;
